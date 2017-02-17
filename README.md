@@ -9,32 +9,6 @@ Iteration 1
 
 1) Create an object to represent the rover that has position and direction attributes 2) Create a grid using arrays (hint: do a google search for two-dimensional arrays). 3) Write functions for the various commands 4) Try to call some of those functions and display the new position of the rover.
 
-For example, you could start with this:
-
-var Rover = {
-  position: [0,0],
-  direction: 'N'
-}
-
-function goForward(rover) {
-  switch(rover.direction) {
-    case 'N':
-      rover.position[0]++
-      break;
-    case 'E':
-      rover.position[1]++
-      break;
-    case 'S':
-      rover.position[0]--
-      break;
-    case 'W':
-      rover.position[1]--
-      break;
-  }
-}
-goForward(myRover);
-Iteration 2
-
 We want to be able to send a series of commands to the rover and execute them in sequence.
 
 We will send an array of character commands, which can include:
