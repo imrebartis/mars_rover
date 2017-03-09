@@ -11,7 +11,7 @@ Implement obstacle detection. The rover should execute the given commands until 
  var myRover = {
   position: [0,0],
   newPosition:[0,0], 
-  direction: 'north',
+  direction: 'North',
   status: 'doing great',
   command: undefined
 };
@@ -59,26 +59,25 @@ function inputText() {
   document.getElementById("output").innerHTML = "Rover's position: X = " + myRover.position[0] + ", Y = " + myRover.position[1] + "; facing " + myRover.direction + "; status: " + myRover.status + ";<br> obstacle's position: X = " + obstacle.obstaclePosition[0] + ", Y = " + obstacle.obstaclePosition[1] + ".";
   return true;
 }
+  
 
 function doMove(move) {
   var stepX = 0;
   var stepY = 0;
-    // north
-    if (myRover.direction === 'north') { 
-      stepX = 1;
-    }
-    // south
-    else if (myRover.direction === 'south') { 
-      stepX = -1;
-    }
-    // east
-    else if (myRover.direction === 'east') { 
-      stepY = 1;
-    }
-    // west
-    else if (myRover.direction === 'west') {
-      stepY = -1;
-    }
+  switch(myRover.direction) {
+    case 'North':
+      myRover.newPosition[0]++
+      break;
+    case 'East':
+      myRover.newPosition[1]++
+      break;
+     case 'South':
+     myRover.newPposition[0]--
+      break;
+     case 'West':
+       myRover.newPosition[1]--
+       break;
+   };
     // MOVING BACKWARDS
     if (move === 'b') { 
       stepX *= -1;
@@ -115,40 +114,40 @@ function doMove(move) {
 function doTurn(move){
   // TURN LEFT
     if (move === 'l') {
-      // north --> west
-      if (myRover.direction === 'north') { 
-        myRover.direction = 'west';
+      // North --> West
+      if (myRover.direction === 'North') { 
+        myRover.direction = 'West';
       }
-      // south --> east
-      else if (myRover.direction === 'south') { 
-        myRover.direction = 'east';
+      // South --> East
+      else if (myRover.direction === 'South') { 
+        myRover.direction = 'East';
       }
-      // east --> north
-      else if (myRover.direction === 'east') { 
-        myRover.direction = 'north';
+      // East --> North
+      else if (myRover.direction === 'East') { 
+        myRover.direction = 'North';
       }
-      // west --> south
-      else if (myRover.direction === 'west') { 
-        myRover.direction = 'south';
+      // West --> South
+      else if (myRover.direction === 'West') { 
+        myRover.direction = 'South';
       }
     } 
     // TURN RIGHT
     else if (move === 'r') {
-      // north --> east
-      if (myRover.direction === 'north') { 
-        myRover.direction = 'east';
+      // North --> East
+      if (myRover.direction === 'North') { 
+        myRover.direction = 'East';
       }
-      // south --> west
-      else if (myRover.direction === 'south') { 
-        myRover.direction = 'west';
+      // South --> West
+      else if (myRover.direction === 'South') { 
+        myRover.direction = 'West';
       }
-      // east --> south
-      else if (myRover.direction === 'east') {
-        myRover.direction = 'south';
+      // East --> South
+      else if (myRover.direction === 'East') {
+        myRover.direction = 'South';
       }
-      // west --> north
-      else if (myRover.direction === 'west') {    
-        myRover.direction = 'north';
+      // West --> North
+      else if (myRover.direction === 'West') {    
+        myRover.direction = 'North';
       }  
     }
 }
