@@ -72,7 +72,7 @@ function doMove(move) {
       myRover.newPosition[1]++
       break;
      case 'South':
-     myRover.newPposition[0]--
+     myRover.newPosition[0]--
       break;
      case 'West':
        myRover.newPosition[1]--
