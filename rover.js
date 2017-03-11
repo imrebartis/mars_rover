@@ -22,12 +22,13 @@ var obstacle = {
 
 
 function verify(command) {
-  var command = document.getElementById("instr").value;  
+  var command = document.getElementById("instr").value;
   if (command === undefined || command === "") {
     document.getElementById("output").innerHTML = "No command introduced:  Mars rover shutting down...";
     return false;
   }
   else {
+    command = command.toLowerCase();
     for (var i = 0; i < command.length; i++) {
       if (command[i] != "f" && command[i] != "b" && command[i] != "l" && command[i] != "r") {
         return confirm("Please use only the following letters: 'f b l r'.");
@@ -38,7 +39,8 @@ function verify(command) {
 }
 
 function inputText() {
-  var moves = document.getElementById("instr").value;  
+  var moves = document.getElementById("instr").value;
+  moves = moves.toLowerCase();
   if (!verify(moves)) {
     return false;
   }
@@ -64,20 +66,22 @@ function inputText() {
 function doMove(move) {
   var stepX = 0;
   var stepY = 0;
-  switch(myRover.direction) {
-    case 'North':
-      myRover.newPosition[0]++
-      break;
-    case 'East':
-      myRover.newPosition[1]++
-      break;
-     case 'South':
-     myRover.newPosition[0]--
-      break;
-     case 'West':
-       myRover.newPosition[1]--
-       break;
-   };
+  // north
+ if (myRover.direction === 'North') { 
+    stepX = 1;
+ }
+  // south
+  else if (myRover.direction === 'South') { 
+          stepX = -1;
+  }
+   // east
+   else if (myRover.direction === 'East') { 
+            stepY = 1;
+   }
+   // west
+   else if (myRover.direction === 'West') {
+            stepY = -1;
+   }
     // MOVING BACKWARDS
     if (move === 'b') { 
       stepX *= -1;
@@ -113,6 +117,7 @@ function doMove(move) {
 
 function doTurn(move){
   // TURN LEFT
+
     if (move === 'l') {
       // North --> West
       if (myRover.direction === 'North') { 
