@@ -1,0 +1,76 @@
+<html>
+<head>
+	<title>Mars Rovers Kata</title>
+	<script type="text/javascript" src="two-rovers.js"></script>
+	<style>
+	html {
+		background: url("rover.png") no-repeat;
+		background-position: 50% 33%;
+		background-size: cover;
+		font-family: Helvetica, Arial, sans-serif;
+	}
+	body {
+		color: #FDF0CB;
+	}
+	p {
+		font-weight: bold;
+	}
+	#cover {
+		position: fixed;
+		 top: 0;
+		 right: 0;
+		 bottom: 0;
+		 left: 0;
+		 z-index: -1;
+		 background: rgba(0, 0, 0, .4);
+	}
+	#enter {
+		font-size: 28px;
+	}
+	input {
+		display: block;
+		height: 3.3rem;
+		width: 10rem;
+		margin-right: .7rem;
+		margin-top: .2rem;
+		font-size: 1.1rem;
+		background: #FDF0CB;
+		color: #392416;
+		font-weight: 600;
+		letter-spacing: .1rem;
+	}
+	button {
+		background: #392416;
+		color: #FDF0CB;
+		width: 10rem;
+		margin-top: 1rem;
+		border-color: #FDF0CB;
+	}
+	button p {
+		font-size: .9rem;
+	}
+	#output {
+		font-size: 28px;
+		font-weight: 600;
+	}
+	</style>
+</head>
+
+<body>	
+		<div id="cover"></div>
+		<H1>MARS ROVERS KATA</H1>
+		<p>Rovers one's initial position: X = 0, Y = 0; facing North.</p><br>
+		<p>Rovers two's initial position: X = 9, Y = 9; facing North.</p><br>
+		<p>Grid dimensions: 10 x 10.</p><br>
+		<p id="enter">Enter your commands below (f = forward, b = backward, l = left; r = right), example: fffrfflb.</p><br>
+		<p>Rover nr 1</p>
+		<input id="instr1" type="text">
+		<p>Rover nr 2</p>
+		<input id="instr2" type="text">
+		<button type="button" onclick="inputText()"><p>Move rovers</p></button>
+		<br><br>
+		<div id="output"></div>
+</body>
+
+
+</html>
