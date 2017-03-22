@@ -21,21 +21,21 @@ var obstacle = {
     obstaclePosition : [Math.floor((Math.random() * 9)+1), Math.floor((Math.random() * 10))]
 };
 
-var map = {
-  grid: array2D(10,10,0)
-};
+// var map = {
+//   grid: array2D(10,10,0)
+// };
 
-function array2D(numrows, numcols, initial){//bidimensional array generated
-   var arr = [];
-   for (var i = 0; i < numrows; ++i){
-      var columns = [];
-      for (var x = 0; x < numcols; ++x){
-         columns[x] = "["+i+","+x+"]"; // si quisiera el valor incial solo sustituir por initial
-      }
-      arr[i] = columns;
-    }
-    return arr;
-}
+// function array2D(numrows, numcols, initial){
+//    var arr = [];
+//    for (var i = 0; i < numrows; ++i){
+//       var columns = [];
+//       for (var x = 0; x < numcols; ++x){
+//          columns[x] = "["+i+","+x+"]";
+//       }
+//       arr[i] = columns;
+//     }
+//     return arr;
+// }
 
 function mapIni(){
   map.grid[obstacle.obstaclePosition[0]][obstacle.obstaclePosition[1]]= "Obstacle";
@@ -93,9 +93,9 @@ function inputText() {
         }
   }
   document.getElementById("output").innerHTML = "Rover's position: X = " + myRover.position[0] + ", Y = " + myRover.position[1] + "; facing " + myRover.direction + "; status: " + myRover.status + ";<br> obstacle's position: X = " + obstacle.obstaclePosition[0] + ", Y = " + obstacle.obstaclePosition[1] + ".";
-  console.log("Final rover position: [" + myRover.position[0] + ", " + myRover.position[1] + "], Status: "+myRover.status);
-  refreshGrid();
-  console.log("Updated map:\n"+ map.grid);
+  // console.log("Final rover position: [" + myRover.position[0] + ", " + myRover.position[1] + "], Status: "+myRover.status);
+  // refreshGrid();
+  // console.log("Updated map:\n"+ map.grid);
   return true;
 }
   
@@ -202,5 +202,5 @@ function thereIsAnObstacle(newPosition) {
   return false;
 } 
 
-mapIni();
-console.log("Initial grid map:\n"+ map.grid);
+// mapIni();
+// console.log("Initial grid map:\n"+ map.grid);
