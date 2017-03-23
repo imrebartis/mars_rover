@@ -29,51 +29,51 @@ var obstacle = {
     obstaclePosition : [Math.floor((Math.random() * 8)+2), Math.floor((Math.random() * 8)+2)]
 };
 
-// var map = {
-//   grid: array2D(10,10,0)
-// };
+var map = {
+  grid: array2D(10,10,0)
+};
 
-// function array2D(numrows, numcols, initial){
-//    var arr = [];
-//    for (var i = 0; i < numrows; ++i){
-//       var columns = [];
-//       for (var x = 0; x < numcols; ++x){
-//          columns[x] = "["+i+","+x+"]";
-//       }
-//       arr[i] = columns;
-//     }
-//     return arr;
-// }
+function array2D(numrows, numcols, initial){
+   var arr = [];
+   for (var i = 0; i < numrows; ++i){
+      var columns = [];
+      for (var x = 0; x < numcols; ++x){
+         columns[x] = "["+i+","+x+"]";
+      }
+      arr[i] = columns;
+    }
+    return arr;
+}
 
-// function mapIni(){
-//   map.grid[obstacle.obstaclePosition[0]][obstacle.obstaclePosition[1]]= "Obstacle";
-//   map.grid[myRover1.position[0]][myRover1.position[1]]= "Rover one";
-//   map.rover = '[0,0]';
-//   map.roverNew = '[0,0]';
-//   map.roverP0 = 0;
-//   map.roverP1 = 0;
-//   map.roverP0New = 0;
-//   map.roverP1New = 0;
-//   map.grid[myRover2.position2[0]][myRover2.position2[1]]= "Rover two";
-//   map.rover2 = '[0,0]';
-//   map.rover2New= '[0,0]';
-//   map.rover2P0 = 0;
-//   map.rover2P1 = 0;
-//   map.rover2P0New = 0;
-//   map.rover2P1New = 0;
-// }
-// function refreshGrid(){
-//   map.grid[map.roverP0][map.roverP1]= map.rover;
-//   map.grid[map.roverP0New][map.roverP1New]= "Rover one";
-//   map.rover = map.roverNew;
-//   map.roverP1 = map.roverP1New;
-//   map.roverP0 = map.roverP0New;
-//   map.grid[map.rover2P0][map.rover2P1]= map.rover2;
-//   map.grid[map.rover2P0New][map.rover2P1New]= "Rover two";
-//   map.rover2 = map.rover2New;
-//   map.rover2P1 = map.rover2P1New;
-//   map.rover2P0 = map.rover2P0New;
-// }
+function mapIni(){
+  map.grid[obstacle.obstaclePosition[0]][obstacle.obstaclePosition[1]]= "Obstacle";
+  map.grid[myRover1.position[0]][myRover1.position[1]]= "Rover one";
+  map.rover = '[0,0]';
+  map.roverNew = '[0,0]';
+  map.roverP0 = 0;
+  map.roverP1 = 0;
+  map.roverP0New = 0;
+  map.roverP1New = 0;
+  map.grid[myRover2.position2[0]][myRover2.position2[1]]= "Rover two";
+  map.rover2 = '[9,9]';
+  map.rover2New= '[9,9]';
+  map.rover2P0 = 9;
+  map.rover2P1 = 9;
+  map.rover2P0New = 9;
+  map.rover2P1New = 9;
+}
+function refreshGrid(){
+  map.grid[map.roverP0][map.roverP1]= map.rover;
+  map.grid[map.roverP0New][map.roverP1New]= "Rover one";
+  map.rover = map.roverNew;
+  map.roverP1 = map.roverP1New;
+  map.roverP0 = map.roverP0New;
+  map.grid[map.rover2P0][map.rover2P1]= map.rover2;
+  map.grid[map.rover2P0New][map.rover2P1New]= "Rover two";
+  map.rover2 = map.rover2New;
+  map.rover2P1 = map.rover2P1New;
+  map.rover2P0 = map.rover2P0New;
+}
 
 function verifyOne(command) {
   var command = document.getElementById("instr1").value;
@@ -134,10 +134,6 @@ function inputText() {
           doTurn(move);
         }
   }
-  //document.getElementById("output").innerHTML = "Rover's position: X = " + myRover1.position[0] + ", Y = " + myRover1.position[1] + "; facing " + myRover1.direction + "; status: " + myRover1.status + ";<br> obstacle's position: X = " + obstacle.obstaclePosition[0] + ", Y = " + obstacle.obstaclePosition[1] + ".";
-  // console.log("Final position for rover one: [" + myRover1.position[0] + ", " + myRover1.position[1] + "], status: "+myRover1.status + "\n Final position for rover two: [" + myRover2.position2[0] + "," + myRover2.position2[1] + "], status: "+myRover2.status2);
-  // refreshGrid();
-  // console.log("Updated map:\n"+ map.grid);
 
   for (var i = 0; i < movesTwo.length; i++) {
     var moveTwo = movesTwo[i];
@@ -152,7 +148,10 @@ function inputText() {
   }
   document.getElementById("output").innerHTML = "Rover one's position: X = " + myRover1.position[0] + ", Y = " + myRover1.position[1] + "; facing " + myRover1.direction + "; status: " + myRover1.status + ".<br> Rover two's position: X = " + myRover2.position2[0] + ", Y = " + myRover2.position2[1] + "; facing " + myRover2.direction2 + "; status: " + myRover2.status2 + ".<br> Obstacle's position: X = " + obstacle.obstaclePosition[0] + ", Y = " + obstacle.obstaclePosition[1] + ".";
   
-  return true;
+console.log("Final position for rover one: [" + myRover1.position[0] + ", " + myRover1.position[1] + "]; facing " + myRover1.direction + "; status: "+myRover1.status + "\n Final position for rover two: [" + myRover2.position2[0] + "," + myRover2.position2[1] + "]; facing " + myRover2.direction2 + "; status: "+myRover2.status2);
+refreshGrid();
+console.log("Updated map:\n"+ map.grid);
+return true;
 }
   
 
@@ -204,8 +203,8 @@ function doMove(move) {
     else {
       myRover1.position[0] = myRover1.newPosition[0];
       myRover1.position[1] = myRover1.newPosition[1];
-      // map.roverP0New = myRover1.position[0];
-      // map.roverP1New = myRover1.position[1];
+      map.roverP0New = myRover1.position[0];
+      map.roverP1New = myRover1.position[1];
       return true;
     }
 }
@@ -258,8 +257,8 @@ function doMoveTwo(moveTwo) {
     else {
       myRover2.position2[0] = myRover2.newPosition2[0];
       myRover2.position2[1] = myRover2.newPosition2[1];
-      // map.rover2P0New = myRover2.position2[0];
-      // map.rover2P1New = myRover2.position2[1];
+      map.rover2P0New = myRover2.position2[0];
+      map.rover2P1New = myRover2.position2[1];
       return true;
     }
 }
@@ -372,5 +371,5 @@ function roversCollide(newPosition) {
   }
   return false;
 } 
-// mapIni();
-// console.log("Initial grid map:\n"+ map.grid);
+mapIni();
+console.log("Initial grid map:\n"+ map.grid);
