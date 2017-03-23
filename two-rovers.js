@@ -19,7 +19,7 @@ Implement obstacle detection. The rover should execute the given commands until 
 
  var myRover2 = {
   position2: [9,9],
-  newPosition2:[9,9], 
+  newPosition2: [9,9], 
   direction2: 'North',
   status2: 'doing great',
   command2: undefined
@@ -49,18 +49,18 @@ var obstacle = {
 //   map.grid[obstacle.obstaclePosition[0]][obstacle.obstaclePosition[1]]= "Obstacle";
 //   map.grid[myRover1.position[0]][myRover1.position[1]]= "Rover one";
 //   map.rover = '[0,0]';
-//   map.roverNew= '[0,0]';
+//   map.roverNew = '[0,0]';
 //   map.roverP0 = 0;
-//   map.roverP1= 0;
-//   map.roverP0New= 0;
-//   map.roverP1New= 0;
-  // map.grid[myRover2.position2[0]][myRover2.position2[1]]= "Rover two";
-  // map.rover2 = '[0,0]';
-  // map.rover2New= '[0,0]';
-  // map.rover2P0 = 9;
-  // map.rover2P1= 9;
-  // map.rover2P0New= 9;
-  // map.rover2P1New= 9;
+//   map.roverP1 = 0;
+//   map.roverP0New = 0;
+//   map.roverP1New = 0;
+//   map.grid[myRover2.position2[0]][myRover2.position2[1]]= "Rover two";
+//   map.rover2 = '[0,0]';
+//   map.rover2New= '[0,0]';
+//   map.rover2P0 = 0;
+//   map.rover2P1 = 0;
+//   map.rover2P0New = 0;
+//   map.rover2P1New = 0;
 // }
 // function refreshGrid(){
 //   map.grid[map.roverP0][map.roverP1]= map.rover;
@@ -68,12 +68,12 @@ var obstacle = {
 //   map.rover = map.roverNew;
 //   map.roverP1 = map.roverP1New;
 //   map.roverP0 = map.roverP0New;
-  // map.grid[map.rover2P0][map.rover2P1]= map.rover2;
-  // map.grid[map.rover2P0New][map.rover2P1New]= "Rover two";
-  // map.rover2 = map.rover2New;
-  // map.rover2P1 = map.rover2P1New;
-  // map.rover2P0 = map.rover2P0New;
-//}
+//   map.grid[map.rover2P0][map.rover2P1]= map.rover2;
+//   map.grid[map.rover2P0New][map.rover2P1New]= "Rover two";
+//   map.rover2 = map.rover2New;
+//   map.rover2P1 = map.rover2P1New;
+//   map.rover2P0 = map.rover2P0New;
+// }
 
 function verifyOne(command) {
   var command = document.getElementById("instr1").value;
@@ -204,6 +204,8 @@ function doMove(move) {
     else {
       myRover1.position[0] = myRover1.newPosition[0];
       myRover1.position[1] = myRover1.newPosition[1];
+      // map.roverP0New = myRover1.position[0];
+      // map.roverP1New = myRover1.position[1];
       return true;
     }
 }
@@ -256,6 +258,8 @@ function doMoveTwo(moveTwo) {
     else {
       myRover2.position2[0] = myRover2.newPosition2[0];
       myRover2.position2[1] = myRover2.newPosition2[1];
+      // map.rover2P0New = myRover2.position2[0];
+      // map.rover2P1New = myRover2.position2[1];
       return true;
     }
 }
@@ -352,10 +356,10 @@ function thereIsAnObstacleForRoverOne(newPosition) {
 } 
 
 function thereIsAnObstacleForRoverTwo(newPosition2) {
-	if (obstacle.obstaclePosition[0] === myRover2.newPosition2[0] && obstacle.obstaclePosition[1] === myRover2.newPosition2[1]){
-  	myRover2.status2 = '#$@&%*! aka obstructed';
-  	return true;
-  	}
+  if (obstacle.obstaclePosition[0] === myRover2.newPosition2[0] && obstacle.obstaclePosition[1] === myRover2.newPosition2[1]){
+    myRover2.status2 = '#$@&%*! aka obstructed';
+    return true;
+    }
   return false;
   }
 
