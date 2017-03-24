@@ -49,9 +49,14 @@
 	button p {
 		font-size: .9rem;
 	}
+	#input {
+		float: left;
+	}
 	#output {
 		font-size: 28px;
 		font-weight: 600;
+		margin: 4rem auto auto 2rem; 
+		float: left;
 	}
 	</style>
 </head>
@@ -63,11 +68,13 @@
 		<p>Rovers two's initial position: X = 9, Y = 9; facing North.</p><br>
 		<p>Grid dimensions: 10 x 10.</p><br>
 		<p id="enter">Enter your commands below (f = forward, b = backward, l = left; r = right), example: fffrfflb.</p><br>
+		<div id="input">
 		<p>Rover nr 1</p>
 		<input id="instr1" type="text">
 		<p>Rover nr 2</p>
 		<input id="instr2" type="text">
 		<button type="button" onclick="inputText()"><p>Move rovers</p></button>
+		</div>
 		<br><br>
 		<div id="output"></div>
 </body>
